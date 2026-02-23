@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class ItemType extends Model
+{
+    use SoftDeletes;
+    protected $guarded = [];
+
+    public function created_user()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+    public function updated_user()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+
+    // public function item_copies()
+    // {
+    //     return $this->hasMany(ItemCopy::class, 'item_type_code', 'code');
+    // } 
+}
