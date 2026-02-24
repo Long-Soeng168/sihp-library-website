@@ -1,6 +1,6 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { usePage } from '@inertiajs/react';
-import { ChevronRightIcon, ImageOffIcon } from 'lucide-react';
+import { ChevronRightIcon } from 'lucide-react';
 import { styled } from 'styled-components';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 const BookCardHoverGradient = ({
@@ -14,18 +14,38 @@ const BookCardHoverGradient = ({
     subTitle?: string;
     image_url?: string;
 }) => {
-    const { app_url } = usePage<any>().props;
+    const { name, app_url } = usePage<any>().props;
 
     return (
         <StyledWrapper className="h-full">
             <div className="relative h-full">
                 <div className="btn group relative z-10 h-full w-full overflow-hidden rounded-md border-2 border-background shadow hover:translate-[-8px] hover:border-transparent active:hover:translate-0 dark:border-border dark:hover:border-transparent">
                     <div className="flex h-full w-full flex-col border-none bg-background text-foreground">
-                        <div>
-                            <Avatar className="aspect-[7/10] w-full border-b bg-transparent object-cover">
-                                <AvatarImage src={image_url} className="aspect-[7/10] w-full border-b bg-transparent object-cover" alt={title} />
-                                <AvatarFallback className="rounded bg-primary/10 font-semibold text-primary">
-                                    <ImageOffIcon size={50} strokeWidth={1.5} className="opacity-50" />
+                        <div className="group relative aspect-[7/10] w-full overflow-hidden rounded-sm bg-card transition-all duration-500 ease-out dark:shadow-primary/5">
+                            <Avatar className="h-full w-full rounded-none border-none">
+                                <AvatarImage
+                                    src={image_url}
+                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt={title}
+                                />
+                                <AvatarFallback className="relative flex h-full w-full flex-col items-start justify-between overflow-hidden rounded-none bg-zinc-50 p-8 dark:bg-zinc-950">
+                                    <div className="z-10 flex w-full flex-col gap-2 border-l-2 border-primary pl-4">
+                                        <span className="text-[10px] leading-none font-black tracking-[0.3em] text-foreground uppercase">
+                                            Available at
+                                        </span>
+                                        <span className="font-serif text-[11px] tracking-wide text-muted-foreground italic">{name}</span>
+                                    </div>
+
+                                    {/* 3. The Title Block - Bold Modern Sans */}
+                                    <div className="z-10 w-full">
+                                        <h3 className="line-clamp-4 text-3xl leading-[0.8] font-black tracking-tighter text-foreground uppercase">
+                                            {title}
+                                        </h3>
+                                        <div className="mt-8 flex items-center gap-4">
+                                            <div className="h-[1px] flex-1 bg-border" />
+                                            <span className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground uppercase"></span>
+                                        </div>
+                                    </div>
                                 </AvatarFallback>
                             </Avatar>
                         </div>
