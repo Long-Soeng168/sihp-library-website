@@ -38,7 +38,7 @@ const BookCardHoverGradient = ({
 
                                     {/* 3. The Title Block - Bold Modern Sans */}
                                     <div className="z-10 w-full">
-                                        <h3 className="line-clamp-4 text-3xl leading-[0.8] font-black tracking-tighter text-foreground uppercase">
+                                        <h3 className="line-clamp-4 text-2xl leading-[0.9] font-black tracking-tighter text-foreground uppercase">
                                             {title}
                                         </h3>
                                         <div className="mt-8 flex items-center gap-4">
