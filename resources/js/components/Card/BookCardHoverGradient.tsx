@@ -28,22 +28,22 @@ const BookCardHoverGradient = ({
                                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     alt={title}
                                 />
-                                <AvatarFallback className="relative flex h-full w-full flex-col items-start justify-between overflow-hidden rounded-none bg-zinc-50 p-8 dark:bg-zinc-950">
+                                <AvatarFallback className="relative flex h-full w-full flex-col items-start justify-between overflow-hidden rounded-none bg-zinc-50 p-4 dark:bg-zinc-950">
                                     <div className="z-10 flex w-full flex-col gap-2 border-l-2 border-primary pl-4">
-                                        <span className="text-[10px] leading-none font-black tracking-[0.3em] text-foreground uppercase">
+                                        <span className="text-[8px] leading-none font-semibold tracking-[0.3em] text-foreground text-muted-foreground uppercase">
                                             Available at
                                         </span>
-                                        <span className="font-serif text-[11px] tracking-wide text-muted-foreground italic">{name}</span>
+                                        <span className="font-serif text-[10px] tracking-wide text-foreground italic">{name}</span>
                                     </div>
 
                                     {/* 3. The Title Block - Bold Modern Sans */}
                                     <div className="z-10 w-full">
-                                        <h3 className="line-clamp-4 text-2xl leading-[0.9] font-black tracking-tighter text-foreground uppercase">
+                                        <h3 className="line-clamp-4 text-2xl leading-[0.95] font-black tracking-tighter text-foreground uppercase">
                                             {title}
                                         </h3>
                                         <div className="mt-8 flex items-center gap-4">
                                             <div className="h-[1px] flex-1 bg-border" />
-                                            <span className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground uppercase"></span>
+                                            {/* <span className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground uppercase"></span> */}
                                         </div>
                                     </div>
                                 </AvatarFallback>

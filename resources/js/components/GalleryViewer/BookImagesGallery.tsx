@@ -1,7 +1,7 @@
 import useTranslation from '@/hooks/use-translation';
 import { cn } from '@/lib/utils';
 import { Link } from '@inertiajs/react';
-import { BookOpenIcon, FileDownIcon, ImageOffIcon, Maximize2Icon, Minimize2Icon, RotateCwSquareIcon, ZoomInIcon, ZoomOutIcon } from 'lucide-react';
+import { BookOpenIcon, FileDownIcon, ImageIcon, Maximize2Icon, Minimize2Icon, RotateCwSquareIcon, ZoomInIcon, ZoomOutIcon } from 'lucide-react';
 import { useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
@@ -88,8 +88,16 @@ export default function BookImagesGallery({ images = [''], mainImageClassName = 
                                 )}
                                 alt={alternative}
                             />
-                            <AvatarFallback className="rounded-none bg-primary/10 font-semibold text-primary">
-                                <ImageOffIcon size={35} strokeWidth={1.5} className="min-h-32 opacity-50" />
+                            <AvatarFallback className="aspect-square w-full flex-col gap-2 rounded-md bg-muted/80 text-muted-foreground">
+                                <div className={cn('transition-color flex h-full w-full flex-col items-center justify-center rounded-xl p-8')}>
+                                    <ImageIcon className="size-12" strokeWidth={1.25} />
+
+                                    <div className="mt-4 flex flex-col items-center gap-1 text-center">
+                                        <span className="text-base text-foreground">
+                                            {currentLocale == 'kh' ? 'មិនមានរូបភាព' : 'No Image Available'}
+                                        </span>
+                                    </div>
+                                </div>
                             </AvatarFallback>
                         </Avatar>
                     </PhotoView>
